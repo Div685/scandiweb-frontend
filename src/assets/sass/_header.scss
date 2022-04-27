@@ -1,0 +1,18 @@
+main {
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+
+  .header__button {
+    width: 175px;
+    display: flex;
+    justify-content: space-between; 
+  }
+
+  button {
+    text-transform: uppercase;
+  }
+}
