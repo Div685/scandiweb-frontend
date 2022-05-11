@@ -58,7 +58,7 @@ const ProductList = () => {
         {
           itemData.map((item) => (
             <div className="items-data" key={item.SKU}>
-              <input type="checkbox" name="checkbox" id="checkbox"/>
+              <input className="delete-checkbox" type="checkbox" name="checkbox" id="checkbox"/>
               <p className="sku"> {item.SKU} </p>
               <p className="name">{item.name}</p>
               <p className="price"> {item.price} </p>
