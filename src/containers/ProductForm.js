@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import BookForm from './productFormType/BookForm';
 import { DvdForm } from './productFormType/DvdForm';
 import FurnitureForm from './productFormType/FurnitureForm';
+import { useNavigate } from 'react-router-dom';
 
 const ProductForm = () => {
 
@@ -10,6 +11,8 @@ const ProductForm = () => {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [switcher, setSwitcher] = useState("");
+  const [errorNotification, setErrorNotification] = useState("");
+  let navigate = useNavigate();
   
   // Book
   const [bWeight, setBWeight] = useState("");
@@ -17,6 +20,9 @@ const ProductForm = () => {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [length, setLength] = useState("");
+
+  // color error
+  const [color, setColor] = useState("");
   
   // Size
   const [size, setSize] = useState("");
@@ -55,10 +61,31 @@ const ProductForm = () => {
   }
 
   const handleClear = () => {
-    console.log("Clear Data")
+    setSku("");
+    setName("");
+    setPrice("");
+    setSize("");
+    setBWeight("");
+    setHeight("");
+    setWeight("");
+    setLength("");
+    let path = '/';
+    navigate(path);
   }
 
   const onSubmitForm = () => {
+    if (sku === "" || name === "" || price === "") {
+      setErrorNotification("Please submit required data");
+      setColor("border border-danger")
+    }
+    if (proType.type.name === "DvdForm" && size === "") {
+      setErrorNotification("Please submit required data")
+    }if (proType.type.name === "BookForm" && bWeight === "") {
+      setErrorNotification("Please submit required data")
+    }
+    if (proType.type.name === "FurnitureForm" && height === "" || weight === "" || length === "" ) {
+      setErrorNotification("Please submit required data");
+    }
     console.log(sku, name, price, height, weight, length, bWeight, size );
 
   }
@@ -68,17 +95,21 @@ const ProductForm = () => {
       <Header handleSubmit={handleSubmit} handleClear={handleClear} title="Product Add" firstBtn={firstBtn} secondBtn="Cancel" />
       <form onSubmit={onSubmitForm} id="product_form">
 
+        {errorNotification}
         <label>
-          SKU: 
-          <input 
-            type="text" 
+          <span>
+            SKU: 
+          </span>
+          <input
+            type="text"
+            className={color} 
             name="sku" 
             id="sku" 
             value={sku} 
             onChange={(event) => { setSku(event.target.value); }} />
         </label>
         <label>
-          Name: 
+          <span>Name: </span>
           <input 
             type="text" 
             name="name" 
@@ -89,7 +120,7 @@ const ProductForm = () => {
 
 
         <label>
-          Price: 
+          <span>Price ($): </span>
           <input 
             type="text" 
             name="price" 
@@ -98,7 +129,7 @@ const ProductForm = () => {
             onChange={(event) => { setPrice(event.target.value); }}/>
         </label>
         <label>
-          Type Switcher:
+          <span>Type Switcher:</span>
           <select  id="productType" onChange={onHandleChange}>
             <option value="Dvd">DVD</option>
             <option value="Book">Book</option>
