@@ -5,6 +5,8 @@ import Header from '../components/Header';
 const ProductList = () => {
 
   const [itemData, setItemData] = useState([]);
+  const [productState, setProductState] = useState([]);
+
   let navigate = useNavigate();
 
   const firstBtn = "ADD";
@@ -14,20 +16,12 @@ const ProductList = () => {
     navigate(path);
   }
 
-  const handleClear = () => {
-    console.log('delete');
-  }
+  useEffect(() => {
+    const url = "/items.json";
+    fetchData(url);
+  }, []);
 
   const fetchData = async (url) => {
-    // try {
-    //   fetch(url)
-    //   .then((res) => res.json())
-    //   .then((json) => {
-    //       setItemData({json});
-    //   })
-    // }catch(e) {
-    //   console.log('something worong')
-    // }
     const request = await fetch(url);
     if (request.status === 200) {
       const data = await request.json();
@@ -36,20 +30,24 @@ const ProductList = () => {
     }
     throw Error(404);
   }
- 
-  useEffect(() => {
-    const url = "/items.json";
-    fetchData(url);
-    // try {
-    //   fetch(url)
-    //   .then((res) => res.json())
-    //   .then((json) => {
-    //       setItemData(json.items);
-    //   })
-    // }catch(e) {
-    //   console.log('something worong')
-    // }
-  }, []);
+
+  const handleClear = () => {
+    let arrayids = [];
+    productState.forEach(d => {
+        arrayids.push(d);
+    });
+  }
+
+  const onCheckBoxChange = (event) => {
+    const productStates = [...productState];
+    const isChecked = productStates.includes(event.target.checked);
+    if (!isChecked) {
+      productStates.push(event.target.value);
+    } else {
+      productStates.splice(productState.indexOf(event.target.value), 1);
+    }
+    setProductState(productStates);
+  }
 
   return (
     <main>
@@ -58,7 +56,15 @@ const ProductList = () => {
         {
           itemData.map((item) => (
             <div className="items-data" key={item.SKU}>
-              <input className="delete-checkbox" type="checkbox" name="checkbox" id="checkbox"/>
+              <input className="delete-checkbox" 
+                type="checkbox"
+                value={item.SKU}
+                name="checkbox" 
+                id="checkbox"
+                onChange={ 
+                  onCheckBoxChange
+                }
+                 />
               <p className="sku"> {item.SKU} </p>
               <p className="name">{item.name}</p>
               <p className="price"> {item.price} </p>
