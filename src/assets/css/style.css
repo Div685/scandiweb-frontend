@@ -5,6 +5,7 @@ main {
 header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 header .header__button {
   width: 175px;
@@ -28,6 +29,20 @@ header button {
 }
 .items .items-data input {
   display: block;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+form label {
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+}
+form label span {
+  width: 25%;
 }
 
 /*# sourceMappingURL=style.css.map */
