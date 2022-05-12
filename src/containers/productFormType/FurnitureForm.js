@@ -7,7 +7,7 @@ const FurnitureForm = ({onHandleChangeHeight, onHandleWeight, onHandleLength}) =
     <div>
       <p>Please Provide a dimensions in HxWxL format</p>
       <label >
-        Height (CM):
+        <span>Height (CM):</span>
         <input 
           type="number" 
           name="height" 
@@ -15,7 +15,7 @@ const FurnitureForm = ({onHandleChangeHeight, onHandleWeight, onHandleLength}) =
           onChange={onHandleChangeHeight} />
       </label>
       <label >
-        Width (CM):
+      <span>Width (CM):</span>
         <input 
           type="number" 
           name="width" 
@@ -23,7 +23,7 @@ const FurnitureForm = ({onHandleChangeHeight, onHandleWeight, onHandleLength}) =
           onChange={onHandleWeight}/>
       </label>
       <label >
-        Length (CM):
+        <span>Length (CM):</span>
         <input 
           type="number" 
           name="length" 
@@ -32,7 +32,7 @@ const FurnitureForm = ({onHandleChangeHeight, onHandleWeight, onHandleLength}) =
           
       </label>
       
-      <span>*product description</span>
+      <p>*product description</p>
     </div>
   )
 }

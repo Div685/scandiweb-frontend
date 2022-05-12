@@ -4,11 +4,12 @@ const BookForm = ({onChangeWeight}) => {
 
   return (
     <>
+      <p>Please Provide Weight</p>
       <label>
-        Weight (KG): 
+        <span>Weight (KG):</span>
         <input type="number" name="book" id="book" onChange={onChangeWeight} />
       </label>
-      <span>*product description</span>
+      <p>*product description</p>
     </>
   )
 }

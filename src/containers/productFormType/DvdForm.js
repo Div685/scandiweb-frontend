@@ -3,11 +3,12 @@ import React from 'react'
 export const DvdForm = ({onChangeSize}) => {
   return (
     <>
+      <p>Please Provide Size</p>
       <label>
-        Size (MB): 
+        <span>Size (MB):</span>
         <input type="number" name="DVD" id="dvd" onChange={onChangeSize} />
       </label>
-      <span>*product description</span>
+      <p>*product description</p>
     </>
   )
 }
