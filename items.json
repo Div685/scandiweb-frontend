@@ -1,0 +1,40 @@
+{
+  "items": [ 
+    {
+    "SKU": "JVC2004",
+    "name": "Acme Disk",
+    "price": "$100",
+    "measure": "Size: 700mb"
+    },
+    {
+    "SKU": "JVC2003",
+    "name": "Acme Disk",
+    "price": "$100",
+    "measure": "Size: 700mb"
+    },
+    {
+      "SKU": "JVC2002",
+      "name": "Acme Disk",
+      "price": "$100",
+      "measure": "Size: 700mb"
+    },
+    {
+      "SKU": "JVC2001",
+      "name": "Acme Disk",
+      "price": "$100",
+      "measure": "Size: 700mb"
+      },
+      {
+      "SKU": "JVC2005",
+      "name": "Acme Disk",
+      "price": "$100",
+      "measure": "Size: 700mb"
+      },
+      {
+        "SKU": "JVC2006",
+        "name": "Acme Disk",
+        "price": "$100",
+        "measure": "Size: 700mb"
+      }
+  ]
+}
