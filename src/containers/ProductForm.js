@@ -10,7 +10,6 @@ const ProductForm = () => {
   const [sku, setSku] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
-  const [switcher, setSwitcher] = useState("");
   const [errorNotification, setErrorNotification] = useState("");
   let navigate = useNavigate();
   
@@ -57,7 +56,6 @@ const ProductForm = () => {
         onHandleWeight={onHandleWeight} 
         onHandleLength={onHandleLength} />);
     }
-    // setSwitcher(values);
   }
 
   const handleClear = () => {
@@ -74,7 +72,7 @@ const ProductForm = () => {
   }
 
   const onSubmitForm = () => {
-    if (sku === "" || name === "" || price === "") {
+    if (sku === "" || (name === "" || price === "")) {
       setErrorNotification("Please submit required data");
       setColor("border border-danger")
     }
@@ -83,7 +81,7 @@ const ProductForm = () => {
     }if (proType.type.name === "BookForm" && bWeight === "") {
       setErrorNotification("Please submit required data")
     }
-    if (proType.type.name === "FurnitureForm" && height === "" || weight === "" || length === "" ) {
+    if ( (proType.type.name === "FurnitureForm" && height === "") || weight === "" || length === "" ) {
       setErrorNotification("Please submit required data");
     }
     console.log(sku, name, price, height, weight, length, bWeight, size );
