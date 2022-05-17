@@ -10,6 +10,7 @@ const ProductList = () => {
   let navigate = useNavigate();
 
   const firstBtn = "ADD";
+  const secondBtn = "MASS DELETE"
 
   const handleSubmit = () => {
     let path = '/add-product';
@@ -51,7 +52,7 @@ const ProductList = () => {
 
   return (
     <main>
-      <Header handleSubmit={handleSubmit} handleClear={handleClear} title="Product List" firstBtn={firstBtn} secondBtn="Mass Delete" />
+      <Header handleSubmit={handleSubmit} handleClear={handleClear} title="Product List" firstBtn={firstBtn} secondBtn={secondBtn} />
       <section className="items">
         {
           itemData.map((item) => (

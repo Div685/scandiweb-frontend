@@ -16,7 +16,7 @@
       "SKU": "JVC2002",
       "name": "Acme Disk",
       "price": "$100",
-      "measure": "Size: 700mb"
+      "measure": "Weight: 2Kg"
     },
     {
       "SKU": "JVC2001",
@@ -28,7 +28,7 @@
       "SKU": "JVC2005",
       "name": "Acme Disk",
       "price": "$100",
-      "measure": "Size: 700mb"
+      "measure": "Dimention: 24x55x15"
       },
       {
         "SKU": "JVC2006",
