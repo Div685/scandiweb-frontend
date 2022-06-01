@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { getData } from '../api/request';
 import Header from '../components/Header';
 
 const ProductList = () => {
@@ -18,19 +19,26 @@ const ProductList = () => {
   }
 
   useEffect(() => {
-    const url = "/items.json";
-    fetchData(url);
+    // const url = "/items.json";
+    // fetchData(url);
+    const requestData = getData();
+    requestData.then((data) => {
+      setItemData(data.data);
+      return data;
+    })
   }, []);
 
-  const fetchData = async (url) => {
-    const request = await fetch(url);
-    if (request.status === 200) {
-      const data = await request.json();
-      setItemData(data.items);
-      return data;
-    }
-    throw Error(404);
-  }
+  console.log(itemData);
+
+  // const fetchData = async (url) => {
+  //   const request = await fetch(url);
+  //   if (request.status === 200) {
+  //     const data = await request.json();
+  //     setItemData(data.items);
+  //     return data;
+  //   }
+  //   throw Error(404);
+  // }
 
   const handleClear = () => {
     let arrayids = [];
@@ -67,9 +75,9 @@ const ProductList = () => {
                 }
                  />
               <p className="sku"> {item.SKU} </p>
-              <p className="name">{item.name}</p>
-              <p className="price"> {item.price} </p>
-              <p className="measure"> {item.measure} </p>
+              <p className="name">{item.Name}</p>
+              <p className="price"> {item.Price} </p>
+              <p className="measure"> {item.Measure} </p>
             </div>
           ))
         }
