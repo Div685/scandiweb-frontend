@@ -1,17 +1,21 @@
 import React, { useState } from 'react'
 import Header from '../components/Header';
 import BookForm from './productFormType/BookForm';
-import { DvdForm } from './productFormType/DvdForm';
+import DvdForm from './productFormType/DvdForm';
 import FurnitureForm from './productFormType/FurnitureForm';
 import { useNavigate } from 'react-router-dom';
+import { insertData } from '../api/fetch';
 
 const ProductForm = () => {
 
   const [sku, setSku] = useState("");
   const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0.00);
   const [errorNotification, setErrorNotification] = useState("");
+  const [message, setMessage] = useState('');
   let navigate = useNavigate();
+  let path = '/';
+  const firstBtn = "Save";
   
   // Book
   const [bWeight, setBWeight] = useState("");
@@ -19,9 +23,6 @@ const ProductForm = () => {
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [length, setLength] = useState("");
-
-  // color error
-  const [color, setColor] = useState("");
   
   // Size
   const [size, setSize] = useState("");
@@ -38,16 +39,45 @@ const ProductForm = () => {
     setLength(e.target.value); 
   }
 
-  const firstBtn = "Save";
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(sku === '' || sku.length === 0) {
+      setMessage('Please Input SKU data');
+      return;
+    }
+    if (name === '' || name.length === 0) {
+      setMessage('Please Input Name');
+      return;
+    }
+    if (price === '') {
+      setMessage('Price Can not be empty');
+      return;
+    }
 
-  const handleSubmit = () => {
-    return onSubmitForm();
+    if (proType.type.name === "DvdForm") {
+      if (size === "") {
+        setErrorNotification("Please Submit required data");
+        return;
+      }
+    }
+
+    if (proType.type.name === "BookForm" && bWeight === "") {
+      setErrorNotification("Please submit required data");
+      return;
+    }
+
+    if ((proType.type.name === "FurnitureForm") && ((height === "" || weight === "") || length === "") ) {
+      setErrorNotification("Please submit required data");
+      return;
+    }
+
+    onSubmitForm(e);
   }
 
   const onHandleChange = (e) => {
     let values = e.target.value;
     if(values === "Dvd") {
-      setProType(<DvdForm onChangeSize={(e) => { setSize(e.target.value)}} />);
+      setProType(<DvdForm onChangeSize={(e) => { setSize(e.target.value) }} />);
     } else if (values === "Book") {
       setProType(<BookForm onChangeWeight={(e) => { setBWeight(e.target.value)}} />);
     } else if (values === "Furniture") {
@@ -55,52 +85,57 @@ const ProductForm = () => {
         onHandleChangeHeight={onHandleChangeHeight}
         onHandleWeight={onHandleWeight} 
         onHandleLength={onHandleLength} />);
-    }
+    } 
+    //else {
+    //   setProType(<DvdForm onChangeSize={(e) => { setSize(e.target.value)}} />);
+    // }
   }
 
   const handleClear = () => {
-    setSku("");
-    setName("");
-    setPrice("");
-    setSize("");
-    setBWeight("");
-    setHeight("");
-    setWeight("");
-    setLength("");
-    let path = '/';
     navigate(path);
   }
 
-  const onSubmitForm = () => {
-    if (sku === "" || (name === "" || price === "")) {
-      setErrorNotification("Please submit required data");
-      setColor("border border-danger")
+  const onSubmitData = async (sku, name, price, measure) => {
+    try {
+      let response = await insertData(sku, name, price, measure);
+      if (response.message === 'Product Created!') {
+        navigate(path);
+      } else {
+        setErrorNotification(response.message);
+      }
+    }catch {
+      setErrorNotification('Sorry, Insertion Data failed!');
     }
-    if (proType.type.name === "DvdForm" && size === "") {
-      setErrorNotification("Please submit required data")
-    }if (proType.type.name === "BookForm" && bWeight === "") {
-      setErrorNotification("Please submit required data")
-    }
-    if ( (proType.type.name === "FurnitureForm" && height === "") || weight === "" || length === "" ) {
-      setErrorNotification("Please submit required data");
-    }
-    console.log(sku, name, price, height, weight, length, bWeight, size );
+    
+  }
 
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    let measures;
+    if (proType.type.name === 'DvdForm') {
+      measures = ('Size: ' + size + ' MB');
+    } else if (proType.type.name === 'BookForm') {
+      measures = ('Weight: '+ bWeight + ' KG');
+    } else if (proType.type.name === 'FurnitureForm') {
+      measures = ('Dimension: ' + height + 'x' + weight + 'x' + length);
+    }
+
+    onSubmitData(sku, name, parseFloat(price), measures);
   }
 
   return (
     <main>
       <Header handleSubmit={handleSubmit} handleClear={handleClear} title="Product Add" firstBtn={firstBtn} secondBtn="Cancel" />
-      <form onSubmit={onSubmitForm} id="product_form">
+      <form id="product_form">
 
         {errorNotification}
+        {message}
         <label>
           <span>
             SKU: 
           </span>
           <input
             type="text"
-            className={color} 
             name="sku" 
             id="sku" 
             value={sku} 
@@ -109,7 +144,7 @@ const ProductForm = () => {
         <label>
           <span>Name: </span>
           <input 
-            type="text" 
+            type="text"
             name="name" 
             id="name" 
             value={name} 

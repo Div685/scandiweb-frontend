@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const DvdForm = ({onChangeSize}) => {
+const DvdForm = ({onChangeSize}) => {
   return (
     <>
       <p>Please Provide Size</p>
@@ -12,3 +12,5 @@ export const DvdForm = ({onChangeSize}) => {
     </>
   )
 }
+
+export default DvdForm;
