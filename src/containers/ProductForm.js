@@ -49,7 +49,7 @@ const ProductForm = () => {
       setMessage('Please Input Name');
       return;
     }
-    if (price === '') {
+    if (price === '' || price === null) {
       setMessage('Price Can not be empty');
       return;
     }
@@ -86,9 +86,6 @@ const ProductForm = () => {
         onHandleWeight={onHandleWeight} 
         onHandleLength={onHandleLength} />);
     } 
-    //else {
-    //   setProType(<DvdForm onChangeSize={(e) => { setSize(e.target.value)}} />);
-    // }
   }
 
   const handleClear = () => {
@@ -119,7 +116,6 @@ const ProductForm = () => {
     } else if (proType.type.name === 'FurnitureForm') {
       measures = ('Dimension: ' + height + 'x' + weight + 'x' + length);
     }
-
     onSubmitData(sku, name, parseFloat(price), measures);
   }
 
@@ -155,7 +151,7 @@ const ProductForm = () => {
         <label>
           <span>Price ($): </span>
           <input 
-            type="text" 
+            type="number" 
             name="price" 
             id="price" 
             value={price} 
