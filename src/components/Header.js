@@ -7,7 +7,7 @@ const Header = ({ handleSubmit, handleClear, title, firstBtn, secondBtn }) => {
       <h3 className="title"> {title} </h3>
       <div className="header__button">
         <button type="submit" onClick={handleSubmit}> {firstBtn} </button>
-        <button type="submit" onClick={handleClear}> {secondBtn} </button>
+        <button type="submit" onClick={handleClear} className="delete-checkbox"> {secondBtn} </button>
       </div>
     </header>
   )

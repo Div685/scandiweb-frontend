@@ -160,9 +160,9 @@ const ProductForm = () => {
         <label>
           <span>Type Switcher:</span>
           <select  id="productType" onChange={onHandleChange}>
-            <option value="Dvd">DVD</option>
-            <option value="Book">Book</option>
-            <option value="Furniture">Furniture</option>
+            <option id="DVD" value="Dvd">DVD</option>
+            <option id="Book" value="Book">Book</option>
+            <option id="Furniture" value="Furniture">Furniture</option>
           </select>
         </label>
 
