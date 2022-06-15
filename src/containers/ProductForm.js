@@ -122,7 +122,7 @@ const ProductForm = () => {
   return (
     <main>
       <Header handleSubmit={handleSubmit} handleClear={handleClear} title="Product Add" firstBtn={firstBtn} secondBtn="Cancel" />
-      <form id="product_form">
+      <form method="post" id="product_form">
 
         {errorNotification}
         {message}
