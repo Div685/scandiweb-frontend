@@ -3,7 +3,7 @@ import React from 'react'
 const DvdForm = ({onChangeSize}) => {
   return (
     <>
-      <p>Please Provide Size</p>
+      <p className="m-0">Please Provide Size</p>
       <label>
         <span>Size (MB):</span>
         <input type="number" name="DVD" id="size" onChange={onChangeSize} />
