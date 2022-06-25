@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Proudct Form Component render Product Form Page correctly 1`] = `
+<main>
+  <header>
+    <h3
+      className="title"
+    >
+       
+      Product Add
+       
+    </h3>
+    <div
+      className="header__button"
+    >
+      <button
+        onClick={[Function]}
+        type="submit"
+      >
+         
+        Save
+         
+      </button>
+      <button
+        onClick={[Function]}
+        type="submit"
+      >
+         
+        Cancel
+         
+      </button>
+    </div>
+  </header>
+  <form
+    id="product_form"
+    method="post"
+  >
+    <label>
+      <span>
+        SKU:
+      </span>
+      <input
+        id="sku"
+        name="sku"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+    <label>
+      <span>
+        Name: 
+      </span>
+      <input
+        id="name"
+        name="name"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+    <label>
+      <span>
+        Price ($): 
+      </span>
+      <input
+        id="price"
+        name="price"
+        onChange={[Function]}
+        type="number"
+        value={0}
+      />
+    </label>
+    <label>
+      <span>
+        Type Switcher:
+      </span>
+      <select
+        id="productType"
+        onChange={[Function]}
+      >
+        <option
+          id="DVD"
+          value="Dvd"
+        >
+          DVD
+        </option>
+        <option
+          id="Book"
+          value="Book"
+        >
+          Book
+        </option>
+        <option
+          id="Furniture"
+          value="Furniture"
+        >
+          Furniture
+        </option>
+      </select>
+    </label>
+    <div
+      className="product__types"
+    >
+      <p
+        className="m-0"
+      >
+        Please Provide Size
+      </p>
+      <label>
+        <span>
+          Size (MB):
+        </span>
+        <input
+          id="size"
+          name="DVD"
+          onChange={[Function]}
+          type="number"
+        />
+      </label>
+      <p>
+        *product description
+      </p>
+    </div>
+  </form>
+</main>
+`;
