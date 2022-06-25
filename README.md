@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+![Linter workflow](https://github.com/Div685/scandiweb-frontend/actions/workflows/linters.yml/badge.svg)
+![Tests workflow](https://github.com/Div685/scandiweb-frontend/actions/workflows/tests.yml/badge.svg)
+# Products
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About the Project
+This Project is built using React. I also bult an PHP API as a backend for this application.
 
-## Available Scripts
+This is a 2 page application:
+- Main Page, This page contains a list of products fetched from the backend database.
+- Add Product Page: This page contains a product form to Add products to the database.
 
-In the project directory, you can run:
+It also contains delete functionality, where users can delete one or mulitple items.
 
-### `npm start`
+## Built With
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* [React](https://reactjs.org/)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* HTML5
+* CSS3
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Live Demo
 
-### `npm test`
+[Live Demo Link](https://peppy-torte-82d0a1.netlify.app/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+To get a local copy up and running, follow these simple example steps.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [ ] On the project GitHub page, navigate to the main page of the repository.
+- [ ] Under the repository name, locate and click on a green button named `Code`. 
+- [ ] Copy the project URL as displayed.
+- [ ] Navigate to the directory where you will like to install the repo by running `cd FOLDER-NAME`
+- [ ] Type git clone, and then paste the URL you copied. <br>
+e.g. `$ git clone https://github.com/Div685/scandiweb-frontend.git`
+7. Press Enter. Your local copy will be created. 
+8. Go to api/apiUrl.js and rewrite the baseUrl like `http://localhost:8000/` so you can run this project in your local environment
+9. To run the server, run `npm start`
+10. To run the tests, run `npm test`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Author
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+👤 **Divyesh Patel**
 
-### `npm run eject`
+- GitHub: [@Div685](https://github.com/Div685)
+- Twitter: [@div_685](https://twitter.com/div_685)
+- LinkedIn: [Divyesh Patel](https://www.linkedin.com/in/divyesh-daxa-patel/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributing
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Contributions, issues, and feature requests are welcome!
+Feel free to check the [issues page](../../issues).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Show your support
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Give an ⭐️ if you like this project!
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Acknowledgements
+* [axios](https://github.com/axios/axios)
