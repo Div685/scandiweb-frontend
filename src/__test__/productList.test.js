@@ -19,8 +19,9 @@ afterEach(() => {
 
 describe('Items List', () => {
   it('should check items', async () => {
+    const handleSubmit = jest.fn();
     const fakeProudct = {
-      pid: '1',
+      pid: 1,
       SKU: 'TEST001',
       Name: 'TEST',
       Price: '20 $',
@@ -33,7 +34,7 @@ describe('Items List', () => {
 
     // Use the asynchronous version of act to apply resolved promises
     await act(async () => {
-      root.render(<Product item={fakeProudct} onCheckBoxChange={null} />);
+      root.render(<Product item={fakeProudct} onCheckBoxChange={handleSubmit} />);
     });
 
     expect(container.querySelector('p').textContent).toBe(` ${fakeProudct.SKU} `);

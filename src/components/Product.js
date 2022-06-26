@@ -15,7 +15,6 @@ const Product = ({ item, onCheckBoxChange }) => {
           value={pid}
           name="checkbox[]"
           id="checkbox"
-          // checked={onChecked}
           onChange={
             onCheckBoxChange
           }
