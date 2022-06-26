@@ -1,5 +1,4 @@
 ![Linter workflow](https://github.com/Div685/scandiweb-frontend/actions/workflows/linters.yml/badge.svg)
-![Tests workflow](https://github.com/Div685/scandiweb-frontend/actions/workflows/tests.yml/badge.svg)
 # Products
 
 ## About the Project
