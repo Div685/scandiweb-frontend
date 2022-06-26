@@ -12,26 +12,26 @@ const secondBtn = 'Delete';
 beforeEach(() => {
   //   // setup a DOM element as a render target
   render(
-    <Header 
-      title={title}
-      firstBtn={firstBtn}
-      secondBtn={secondBtn}
-      handleClear={handleClear}
-      handleSubmit={handleSubmit}
-    />
-    );
-});
-
-describe('Header Component', () => {
-  it('render Header Page correctly', () => {
-    const tree = renderer.create(
-      <Header 
+    <Header
       title={title}
       firstBtn={firstBtn}
       secondBtn={secondBtn}
       handleClear={handleClear}
       handleSubmit={handleSubmit}
     />,
+  );
+});
+
+describe('Header Component', () => {
+  it('render Header Page correctly', () => {
+    const tree = renderer.create(
+      <Header
+        title={title}
+        firstBtn={firstBtn}
+        secondBtn={secondBtn}
+        handleClear={handleClear}
+        handleSubmit={handleSubmit}
+      />,
     );
     expect(tree).toMatchSnapshot();
   });
