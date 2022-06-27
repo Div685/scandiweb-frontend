@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component render Header Page correctly 1`] = `
+<header>
+  <h3
+    className="title"
+  >
+     
+    Product List
+     
+  </h3>
+  <div
+    className="header__button"
+  >
+    <button
+      onClick={[MockFunction]}
+      type="submit"
+    >
+       
+      ADD
+       
+    </button>
+    <button
+      onClick={[MockFunction]}
+      type="submit"
+    >
+       
+      Delete
+       
+    </button>
+  </div>
+</header>
+`;
