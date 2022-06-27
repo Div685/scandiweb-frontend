@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
@@ -160,7 +161,7 @@ const ProductForm = () => {
             onChange={(event) => { setPrice(event.target.value); }}
           />
         </label>
-        <label htmlFor="productType">
+        <label>
           <span>Type Switcher:</span>
           <select id="productType" onChange={onHandleChange}>
             <option id="DVD" value="Dvd">DVD</option>
