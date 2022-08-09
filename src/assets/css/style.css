@@ -1,0 +1,52 @@
+main {
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+header .header__button {
+  width: 175px;
+  display: flex;
+  justify-content: space-between;
+}
+
+header button {
+  text-transform: uppercase;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 16px 0;
+  grid-gap: 16px;
+}
+
+.items .items-data {
+  border: 1px solid #aaa;
+  padding: 10px;
+  text-align: center;
+}
+
+.items .items-data input {
+  display: block;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+form label {
+  margin: 10px 0;
+  width: 100%;
+  display: flex;
+}
+
+form label span {
+  width: 25%;
+}
